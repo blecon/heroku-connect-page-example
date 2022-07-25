@@ -1,7 +1,6 @@
 const express = require("express");
 const req = require("express/lib/request");
 const axios = require("axios");
-
 var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({
   extended: true,
@@ -16,7 +15,9 @@ express()
   .set("view engine", "ejs")
   .get("/", (req, res) => res.render("pages/index"))
   .get("/connect", function (req, res) {
+
     // Blecon sends your users to this page 
+
     res.render("pages/connect", {
       query: req.query,
     });
