@@ -13,10 +13,36 @@
     <a href="/" class="lang-logo">
       <img src="/lang-logo.png">
     </a>
-    <h1>Exampleco device connection</h1>
-    <p>Looks like you want to connect a device. Great!</p>
+    <h1>Welcome to Example Co</h1>
+    <p>It looks like you want to connect a device to your Example Co account. Great!</p>
+    <p align="left">
+    Here's what we know:<br/>
+    <b>Device ID:</b> <%= query.device_id %><br/>
+    <b>Device Key:</b> <%= query.device_public_key %><br/>
+    <b>Network ID:</b> <%= query.network_id %><br/>
+    </p>
    </div>
 
+
+</div>
+
+<div class="container">
+<h2>Please provide a bit more information</h2>
+<br/>
+<form action="/connect-submit" method="POST">
+  <div class="form-group">
+    <label for="install_location">Install location</label>
+    <input type="text" class="form-control" name="install_location" placeholder="Enter install location">
+  </div>
+  <div class="form-group">
+    <label for="installer_name">Installer name</label>
+    <input type="text" class="form-control" name="installer_name" placeholder="Enter installer name">
+  </div>
+  <input name="device_id" type="hidden" value="<%= query.device_id %>">
+  <input name="device_public_key" type="hidden" value="<%= query.device_public_key %>">
+  <input name="network_id" type="hidden" value="<%= query.network_id %>"></br>
+  <button type="submit" class="btn btn-primary">Add device</button>
+</form>
 
 </div>
 
